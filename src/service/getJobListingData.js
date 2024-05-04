@@ -4,7 +4,7 @@ export const getJobListingData = () => {
   myHeaders.append("Content-Type", "application/json");
 
   const body = JSON.stringify({
-    limit: 10,
+    limit: 20,
     offset: 0,
   });
 
