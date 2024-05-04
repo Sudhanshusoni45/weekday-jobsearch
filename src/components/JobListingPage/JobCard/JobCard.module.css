@@ -84,3 +84,9 @@
   font-size: 1.4rem;
   font-weight: 500;
 }
+
+@media screen and (max-width: 420px) {
+  .Wrapper {
+    width: 30rem;
+  }
+}
