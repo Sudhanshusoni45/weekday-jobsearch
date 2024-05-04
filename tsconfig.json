@@ -5,6 +5,16 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    // absolute imports setup
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
+      "@assets/*": ["src/assets/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@redux/*": ["src/redux/*"],
+      "@services/*": ["src/services/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -13,6 +23,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "allowJs": true, /* Set allow js option true */
 
     /* Linting */
     "strict": true,
