@@ -6,8 +6,7 @@ import { useSelector } from "react-redux";
 
 const JobListingPage = () => {
   const { handleGetJobs } = useJobs();
-  const data = useSelector((state) => state.jobs);
-  console.log("data:", data);
+  const { jobsData } = useSelector((state) => state.jobs);
 
   useEffect(() => {
     handleGetJobs();
@@ -15,7 +14,13 @@ const JobListingPage = () => {
 
   return (
     <div className={styles.Wrapper}>
-      <JobCard />
+      {jobsData?.jdList?.length ? (
+        jobsData?.jdList.map(({ jdUid, ...props }) => (
+          <JobCard key={jdUid} {...props} />
+        ))
+      ) : (
+        <div>No jobs found...</div>
+      )}
     </div>
   );
 };
