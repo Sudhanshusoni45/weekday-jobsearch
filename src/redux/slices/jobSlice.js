@@ -4,7 +4,7 @@ const jobsSlice = createSlice({
   name: "jobs",
   initialState: {
     loading: false,
-    data: [],
+    jobsData: [],
   },
   reducers: {
     getJobsLoading: (state) => {
@@ -12,7 +12,7 @@ const jobsSlice = createSlice({
     },
     getJobsSuccess: (state, action) => {
       state.loading = false;
-      state.data = action.payload;
+      state.jobsData = action.payload;
     },
     getJobsFailure: (state) => {
       state.loading = false;

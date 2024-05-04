@@ -2,7 +2,7 @@ import {
   getJobsFailure,
   getJobsLoading,
   getJobsSuccess,
-} from "@redux/slices/jobs";
+} from "@redux/slices/jobSlice";
 import { useDispatch } from "react-redux";
 import { getJobListingData } from "src/service/getJobListingData";
 
@@ -12,8 +12,8 @@ const useJobs = () => {
   const handleGetJobs = async () => {
     try {
       dispatch(getJobsLoading());
-      const response = await getJobListingData();
-      dispatch(getJobsSuccess(response.data));
+      const responseData = await getJobListingData();
+      dispatch(getJobsSuccess(responseData));
     } catch (error) {
       dispatch(getJobsFailure(error));
       console.error(error);
