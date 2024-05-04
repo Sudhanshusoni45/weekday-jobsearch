@@ -37,6 +37,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: "Lexend", sans-serif;
+  font-weight: 300;
 }
 /*
     5. Improve media defaults
