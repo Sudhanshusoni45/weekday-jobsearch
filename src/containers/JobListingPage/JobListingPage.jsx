@@ -12,12 +12,82 @@ const JobListingPage = () => {
   const { handleGetJobs, handleGetMoreJobs } = useJobs();
   const { jobsData, loading } = useSelector((state) => state.jobs);
   const { measureRef, isIntersecting } = useOnScreen();
+
+  const [filters, setFilters] = useState({
+    roles: [],
+    numberOfEmployees: [],
+    experience: [],
+    remote: [],
+    salary: [],
+    companyName: "",
+  });
+
+  const [filteredData, setFilteredData] = useState([]);
+  console.log("filters:", filters);
+  console.log("filteredData:", filteredData);
   // have kept limit as most common screen size would fit 3 cards in a column, 3*3= 9
   const [bodyData, setBodyData] = useState({
     limit: 9,
     offset: 0,
   });
 
+  const JobCardListing = () => {
+    if (filteredData) {
+      return (
+        <>
+          {filteredData.map(({ jdUid, ...props }) => (
+            <JobCard key={jdUid} {...props} />
+          ))}
+        </>
+      );
+    } else {
+      return (
+        <>
+          {jobsData?.jdList?.length ? (
+            jobsData?.jdList.map(({ jdUid, ...props }) => (
+              <JobCard key={jdUid} {...props} />
+            ))
+          ) : (
+            <div>No jobs found...</div>
+          )}
+        </>
+      );
+    }
+  };
+
+  useEffect(() => {
+    let filtered = jobsData.jdList;
+
+    Object.keys(filters).forEach((filterKey) => {
+      const filterValues = filters[filterKey];
+      if (filterValues.length > 0) {
+        if (filterKey === "minJdSalary") {
+          // Special case for salary: keep jobs with salary >= filter value
+          filtered = filtered.filter(
+            (job) => job[filterKey] >= filterValues[0].value
+          );
+        } else if (filterKey !== "companyName") {
+          // General case for other filters
+          filtered = filtered.filter((job) =>
+            filterValues.some((filter) => filter.value === job[filterKey])
+          );
+        }
+      }
+    });
+
+    // Special handling for companyName as it's a string and not an array of options
+    if (filters.companyName !== "") {
+      filtered = filtered.filter((job) =>
+        job.companyName
+          .toLowerCase()
+          .includes(filters.companyName.toLowerCase())
+      );
+    }
+
+    setFilteredData(filtered);
+  }, [filters, jobsData]);
+
+  // get initial set of 9 jobs
   useEffect(() => {
     handleGetJobs({
       limit: 9,
@@ -25,6 +95,7 @@ const JobListingPage = () => {
     });
   }, []);
 
+  // get more jobs on scroll
   useEffect(() => {
     setBodyData((prev) => ({
       ...prev,
@@ -42,16 +113,10 @@ const JobListingPage = () => {
   ) : (
     <div className={styles.Wrapper}>
       <div className={styles.FilterWrapper}>
-        <Filters />
+        <Filters filters={filters} setFilters={setFilters} />
       </div>
       <div className={styles.JobCardsWrapper}>
-        {jobsData?.jdList?.length ? (
-          jobsData?.jdList.map(({ jdUid, ...props }) => (
-            <JobCard key={jdUid} {...props} />
-          ))
-        ) : (
-          <div>No jobs found...</div>
-        )}
+        <JobCardListing />
       </div>
       <div ref={measureRef} className={styles.Loader}>
         <Loader />

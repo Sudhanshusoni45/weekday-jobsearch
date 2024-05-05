@@ -1,72 +1,95 @@
 import Select from "react-select";
 import styles from "./Filters.module.css";
 
-const colourOptions = [
-  { value: "ocean", label: "Ocean", color: "#00B8D9", isFixed: true },
-  { value: "blue", label: "Blue", color: "#0052CC", isDisabled: true },
-  { value: "purple", label: "Purple", color: "#5243AA" },
-  { value: "red", label: "Red", color: "#FF5630", isFixed: true },
-  { value: "orange", label: "Orange", color: "#FF8B00" },
-  { value: "yellow", label: "Yellow", color: "#FFC400" },
-  { value: "green", label: "Green", color: "#36B37E" },
-  { value: "forest", label: "Forest", color: "#00875A" },
-  { value: "slate", label: "Slate", color: "#253858" },
-  { value: "silver", label: "Silver", color: "#666666" },
+const rolesOptions = [
+  { value: "frontend", label: "Frontend" },
+  { value: "backend", label: "Backend" },
+  { value: "fullstack", label: "Fullstack" },
 ];
 
-const Filters = () => {
+const experienceOptions = [
+  { value: 1, label: "1" },
+  { value: 2, label: "2" },
+  { value: 3, label: "3" },
+  { value: 4, label: "4" },
+  { value: 5, label: "5" },
+];
+const locationOptions = [
+  { value: "remote", label: "Remote" },
+  { value: "delhi nc", label: "Delhi NCR" },
+  { value: "mumbai", label: "Mumbai" },
+  { value: "bangalore", label: "Bangalore" },
+  { value: "chennai", label: "Chennai" },
+];
+const salaryOptions = [
+  { value: 0, label: "0L" },
+  { value: 10, label: "10L" },
+  { value: 20, label: "20L" },
+  { value: 30, label: "30L" },
+  { value: 40, label: "40L" },
+  { value: 50, label: "50L" },
+];
+
+const Filters = ({ setFilters, filters }) => {
+  const handleInputChange = (value, action) => {
+    setFilters((prev) => ({
+      ...prev,
+      [action.name]: value,
+    }));
+  };
+
   return (
     <div className={styles.Wrapper}>
       <Select
         defaultValue={[]}
         isMulti
-        name="colors"
-        options={colourOptions}
+        name="jobRole"
+        options={rolesOptions}
         className="basic-multi-select"
         classNamePrefix="select"
         placeholder="Roles"
+        onChange={handleInputChange}
       />
+
       <Select
         defaultValue={[]}
         isMulti
-        name="colors"
-        options={colourOptions}
-        className="basic-multi-select"
-        classNamePrefix="select"
-        placeholder="Number of Employees"
-      />
-      <Select
-        defaultValue={[]}
-        isMulti
-        name="colors"
-        options={colourOptions}
+        name="minExp"
+        options={experienceOptions}
         className="basic-multi-select"
         classNamePrefix="select"
         placeholder="Experience"
+        onChange={handleInputChange}
       />
       <Select
         defaultValue={[]}
         isMulti
-        name="colors"
-        options={colourOptions}
+        name="location"
+        options={locationOptions}
         className="basic-multi-select"
         classNamePrefix="select"
         placeholder="Remote"
+        onChange={handleInputChange}
       />
       <Select
         defaultValue={[]}
         isMulti
-        name="colors"
-        options={colourOptions}
+        name="minJdSalary"
+        options={salaryOptions}
         className="basic-multi-select"
         classNamePrefix="select"
         placeholder="Minimum Base Pay Salary"
+        onChange={handleInputChange}
       />
 
       <input
         className={styles.SearchCompanyInput}
         type="text"
         placeholder="Search Company Name"
+        value={filters.companyName}
+        onChange={(e) =>
+          handleInputChange(e.target.value, { name: "companyName" })
+        }
       />
     </div>
   );
