@@ -18,6 +18,9 @@
   justify-content: center;
   align-items: center;
 }
+.NoJobForFilter {
+  margin-left: 3rem;
+}
 @media screen and (max-width: 1250px) {
   .JobCardsWrapper {
     grid-template-columns: repeat(2, 1fr);
