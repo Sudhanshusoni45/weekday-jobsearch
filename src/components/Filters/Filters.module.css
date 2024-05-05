@@ -2,10 +2,17 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+  margin-left: 6rem;
 }
 .SearchCompanyInput {
   border: 1px solid var(--filter-color);
   border-radius: 0.4rem;
   height: 3.8rem;
   padding: 0.2rem 0.8rem;
+}
+@media only screen and (max-width: 520px) {
+  .Wrapper {
+    margin-left: 0;
+  }
 }

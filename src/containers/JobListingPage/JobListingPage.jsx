@@ -112,9 +112,7 @@ const JobListingPage = () => {
     <LoaderWrapper />
   ) : (
     <div className={styles.Wrapper}>
-      <div className={styles.FilterWrapper}>
-        <Filters filters={filters} setFilters={setFilters} />
-      </div>
+      <Filters filters={filters} setFilters={setFilters} />
       <div className={styles.JobCardsWrapper}>
         <JobCardListing />
       </div>

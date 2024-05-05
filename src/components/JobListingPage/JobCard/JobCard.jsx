@@ -39,7 +39,9 @@ const JobCard = ({
       </div>
       <div className={styles.ExperienceWrapper}>
         <span className={styles.MinExperience}>Minimun Experience </span>
-        <span>{minExp} years</span>
+        <span>
+          {minExp ?? "NA"} {minExp ? "years" : ""}
+        </span>
       </div>
       <div className={styles.BtnWrapper}>
         <Button
