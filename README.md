@@ -1,18 +1,48 @@
-## Installation
-To get started with this project, clone the repository and install the dependencies:
 
-git clone https://github.com/sudhanshusoni45/weekday-jobsearch.git
-cd weekday-jobsearch
-npm install
+## Run Locally
 
-To run the app locally, use the following command:
+Clone the project
 
-npm run dev
+```bash
+  git clone https://github.com/sudhanshusoni45/weekday-jobsearch.git
+```
 
-## Project Directory Structure
+Go to the project directory
 
-Here is a high-level overview of the project's directory structure:
-project-name/
+```bash
+  cd weekday-jobsearch
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Features
+
+- Infinite Loading / Lazy Loading
+- Filters
+- Mobile Responsivess
+
+
+##  Built With
+- **React 18**: for building user interfaces.
+- **Vite**: for fast development and build tooling.
+- **Redux Toolkit**: for state management.
+- **Material UI**: for styled components and icons.
+- **ESLint and Prettier**: for code linting and formatting.
+
+## Project's directory structure
+```
+weekday-jobsearch/
 │
 ├── src/                     # Source files
 │   ├── containers/          # Container components
@@ -31,11 +61,23 @@ project-name/
 ├── package.json             # NPM package manager file
 ├── README.md                # The top-level README for developers using this project
 └── LICENSE                  # License file
+```
 
-### Key Technologies Used
+## Support
 
-- **React 18**: for building user interfaces.
-- **Vite**: for fast development and build tooling.
-- **Redux Toolkit**: for state management.
-- **Material UI**: for styled components and icons.
-- **ESLint and Prettier**: for code linting and formatting.
+For support, email sudhanshusoni45@gmail.com
+
+## Screenshots
+
+![image](https://github.com/Sudhanshusoni45/weekday-jobsearch/assets/26003401/08733221-7484-4b7d-9f68-ab9cfdf54ba5)
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://sudhanshusoni.tech)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sudhanshu-soni/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/sudhanshusoni__)
+
+
+
+
+
