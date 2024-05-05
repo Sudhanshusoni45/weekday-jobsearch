@@ -28,7 +28,7 @@ Start the server
 
 ## Features
 
-- Infinite Loading / Lazy Loading
+- Infinite Loading
 - Filters
 - Mobile Responsivess
 
