@@ -60,7 +60,6 @@ weekday-jobsearch/
 ├── .gitignore               # Specifies intentionally untracked files to ignore
 ├── package.json             # NPM package manager file
 ├── README.md                # The top-level README for developers using this project
-└── LICENSE                  # License file
 ```
 
 ## Support
