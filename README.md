@@ -29,6 +29,7 @@ Start the server
 ## Features
 
 - Infinite Loading
+- Debounce
 - Filters
 - Mobile Responsivess
 

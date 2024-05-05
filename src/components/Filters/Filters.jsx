@@ -1,6 +1,7 @@
 import Select from "react-select";
 import styles from "./Filters.module.css";
-
+import { useState, useEffect } from "react";
+import useDebounce from "../../hooks/useDebounce";
 const rolesOptions = [
   { value: "frontend", label: "Frontend" },
   { value: "backend", label: "Backend" },
@@ -31,12 +32,20 @@ const salaryOptions = [
 ];
 
 const Filters = ({ setFilters, filters }) => {
+  const [companyName, setCompanyName] = useState(filters.companyName);
+  // demonstration of debounce, ideally should be used when there is an api call but here it will prevent excessive re rendering
+  const debouncedCompanyName = useDebounce(companyName, 300); // 300ms debounce time
+
   const handleInputChange = (value, action) => {
     setFilters((prev) => ({
       ...prev,
       [action.name]: value,
     }));
   };
+
+  useEffect(() => {
+    handleInputChange(debouncedCompanyName, { name: "companyName" });
+  }, [debouncedCompanyName]);
 
   return (
     <div className={styles.Wrapper}>
@@ -86,10 +95,8 @@ const Filters = ({ setFilters, filters }) => {
         className={styles.SearchCompanyInput}
         type="text"
         placeholder="Search Company Name"
-        value={filters.companyName}
-        onChange={(e) =>
-          handleInputChange(e.target.value, { name: "companyName" })
-        }
+        value={companyName}
+        onChange={(e) => setCompanyName(e.target.value)}
       />
     </div>
   );
