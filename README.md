@@ -1,30 +1,83 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Run Locally
 
-Currently, two official plugins are available:
+Clone the project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+  git clone https://github.com/sudhanshusoni45/weekday-jobsearch.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Go to the project directory
+
+```bash
+  cd weekday-jobsearch
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Features
+
+- Infinite Loading / Lazy Loading
+- Filters
+- Mobile Responsivess
+
+
+##  Built With
+- **React 18**: for building user interfaces.
+- **Vite**: for fast development and build tooling.
+- **Redux Toolkit**: for state management.
+- **Material UI**: for styled components and icons.
+- **ESLint and Prettier**: for code linting and formatting.
+
+## Project's directory structure
+```
+weekday-jobsearch/
+│
+├── src/                     # Source files
+│   ├── containers/          # Container components
+│   │   └── JobListingPage/  # Job listing page container
+│   │       ├── JobListingPage.module.css  # Styles for the JobListingPage
+│   │       └── JobListingPage.jsx         # Job listing page component
+│   ├── components/          # Reusable components
+│   ├── utils/               # Utility functions
+│   └── app.js               # Application entry point
+│
+├── public/                  # Static files
+│   ├── index.html           # HTML entry point
+│   └── favicon.ico          # Favicon
+│
+├── .gitignore               # Specifies intentionally untracked files to ignore
+├── package.json             # NPM package manager file
+├── README.md                # The top-level README for developers using this project
+└── LICENSE                  # License file
+```
+
+## Support
+
+For support, email sudhanshusoni45@gmail.com
+
+## Screenshots
+
+![image](https://github.com/Sudhanshusoni45/weekday-jobsearch/assets/26003401/08733221-7484-4b7d-9f68-ab9cfdf54ba5)
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://sudhanshusoni.tech)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sudhanshu-soni/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/sudhanshusoni__)
+
+
+
+
+
