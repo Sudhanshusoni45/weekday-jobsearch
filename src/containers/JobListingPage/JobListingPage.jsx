@@ -122,7 +122,11 @@ const JobListingPage = () => {
         <JobCardListing />
       </div>
       <div ref={measureRef} className={styles.Loader}>
-        {filteredData ? filteredData?.length ? <Loader /> : null : <Loader />}
+        {filteredData && !filters.companyName ? (
+          filteredData.length ? (
+            <Loader />
+          ) : null
+        ) : null}
       </div>
     </div>
   );
