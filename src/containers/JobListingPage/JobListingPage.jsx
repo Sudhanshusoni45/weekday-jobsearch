@@ -8,6 +8,7 @@ import useOnScreen from "@hooks/useOnScreen";
 import { Loader } from "@components/LoaderWrapper/LoaderWrapper";
 import Filters from "@components/Filters/Filters";
 
+// please note i have used redux toolkit for demonstration, but it is not required for this project
 const JobListingPage = () => {
   const { handleGetJobs, handleGetMoreJobs } = useJobs();
   const { jobsData, loading } = useSelector((state) => state.jobs);
@@ -23,8 +24,6 @@ const JobListingPage = () => {
   });
 
   const [filteredData, setFilteredData] = useState([]);
-  console.log("filters:", filters);
-  console.log("filteredData:", filteredData);
   // have kept limit as most common screen size would fit 3 cards in a column, 3*3= 9
   const [bodyData, setBodyData] = useState({
     limit: 9,
@@ -35,9 +34,15 @@ const JobListingPage = () => {
     if (filteredData) {
       return (
         <>
-          {filteredData.map(({ jdUid, ...props }) => (
-            <JobCard key={jdUid} {...props} />
-          ))}
+          {filteredData?.length ? (
+            filteredData.map(({ jdUid, ...props }) => (
+              <JobCard key={jdUid} {...props} />
+            ))
+          ) : (
+            <h2 className={styles.NoJobForFilter}>
+              No jobs found for the selected filters..
+            </h2>
+          )}
         </>
       );
     } else {
@@ -117,7 +122,7 @@ const JobListingPage = () => {
         <JobCardListing />
       </div>
       <div ref={measureRef} className={styles.Loader}>
-        <Loader />
+        {filteredData ? filteredData?.length ? <Loader /> : null : <Loader />}
       </div>
     </div>
   );

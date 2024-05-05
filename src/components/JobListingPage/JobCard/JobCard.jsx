@@ -1,5 +1,7 @@
 import { Button } from "@mui/material";
 import styles from "./JobCard.module.css";
+import profilePic from "../../../assets/profilePic.png";
+
 const JobCard = ({
   companyName,
   jobDetailsFromCompany,
@@ -74,6 +76,11 @@ const JobCard = ({
             },
           }}
         >
+          <img
+            className={styles.ProfilePic}
+            src={profilePic}
+            alt="profilePic"
+          />
           Unlock referral asks
         </Button>
       </div>
