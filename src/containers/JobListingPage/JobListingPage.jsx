@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import LoaderWrapper from "@components/LoaderWrapper";
 import useOnScreen from "@hooks/useOnScreen";
 import { Loader } from "@components/LoaderWrapper/LoaderWrapper";
+import Filters from "@components/Filters/Filters";
 
 const JobListingPage = () => {
   const { handleGetJobs, handleGetMoreJobs } = useJobs();
@@ -39,8 +40,11 @@ const JobListingPage = () => {
   return loading ? (
     <LoaderWrapper />
   ) : (
-    <>
-      <div className={styles.Wrapper}>
+    <div className={styles.Wrapper}>
+      <div className={styles.FilterWrapper}>
+        <Filters />
+      </div>
+      <div className={styles.JobCardsWrapper}>
         {jobsData?.jdList?.length ? (
           jobsData?.jdList.map(({ jdUid, ...props }) => (
             <JobCard key={jdUid} {...props} />
@@ -52,7 +56,7 @@ const JobListingPage = () => {
       <div ref={measureRef} className={styles.Loader}>
         <Loader />
       </div>
-    </>
+    </div>
   );
 };
 
