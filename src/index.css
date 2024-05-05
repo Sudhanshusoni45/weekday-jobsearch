@@ -6,6 +6,7 @@
   --primary-violet: #4943da;
   --pure-black: #000;
   --text-grey: #8b8b8b;
+  --filter-color: rgb(204, 204, 204);
 }
 /*font-size: 62.5% is to make 1rem = 10px  */
 html {

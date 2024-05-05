@@ -6,6 +6,9 @@ const JobCard = ({
   jobRole,
   location,
   logoUrl,
+  minExp,
+  minJdSalary,
+  maxJdSalary,
   // salaryCurrencyCode,
 }) => {
   return (
@@ -21,7 +24,9 @@ const JobCard = ({
           <span>{location}</span>
         </div>
       </div>
-      <span>Estimated Salary: </span>
+      <span>
+        Estimated Salary: ₹{minJdSalary ?? "NA"} - {maxJdSalary ?? "NA"} LPA ✅
+      </span>
       <div className={styles.AboutWrapper}>
         <span className={styles.AboutCompany}>About Company:</span>
         <span className={styles.AboutUs}>About us</span>
@@ -34,7 +39,9 @@ const JobCard = ({
       </div>
       <div className={styles.ExperienceWrapper}>
         <span className={styles.MinExperience}>Minimun Experience </span>
-        <span>2 years</span>
+        <span>
+          {minExp ?? "NA"} {minExp ? "years" : ""}
+        </span>
       </div>
       <div className={styles.BtnWrapper}>
         <Button
