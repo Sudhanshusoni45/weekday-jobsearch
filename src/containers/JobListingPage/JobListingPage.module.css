@@ -1,2 +1,25 @@
 .Wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  row-gap: 4rem;
+  column-gap: 2rem;
+  justify-items: center;
+
+  padding: 2rem;
+}
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 1250px) {
+  .Wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 800px) {
+  .Wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
