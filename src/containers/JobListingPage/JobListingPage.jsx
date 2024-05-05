@@ -23,8 +23,6 @@ const JobListingPage = () => {
   });
 
   const [filteredData, setFilteredData] = useState([]);
-  console.log("filters:", filters);
-  console.log("filteredData:", filteredData);
   // have kept limit as most common screen size would fit 3 cards in a column, 3*3= 9
   const [bodyData, setBodyData] = useState({
     limit: 9,
