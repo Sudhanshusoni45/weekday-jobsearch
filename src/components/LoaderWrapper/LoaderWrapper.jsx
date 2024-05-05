@@ -1,6 +1,6 @@
 import styles from "./LoaderWrapper.module.css";
 
-const Loader = ({ loader, isDeleteButton, className }) => {
+export const Loader = ({ loader, isDeleteButton, className }) => {
   return (
     <div
       className={

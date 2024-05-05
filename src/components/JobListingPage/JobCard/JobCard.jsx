@@ -6,7 +6,7 @@ const JobCard = ({
   jobRole,
   location,
   logoUrl,
-  salaryCurrencyCode,
+  // salaryCurrencyCode,
 }) => {
   return (
     <div className={styles.Wrapper}>

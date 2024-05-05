@@ -1,10 +1,6 @@
 import { useCallback, useState } from "react";
 
-const useOnScreen = ({
-  root = null,
-  rootMargin = "0px",
-  threshold = 0,
-} = {}) => {
+const useOnScreen = ({ threshold = 0 } = {}) => {
   const [observer, setOserver] = useState();
   const [isIntersecting, setIntersecting] = useState(false);
 
@@ -15,14 +11,14 @@ const useOnScreen = ({
           ([entry]) => {
             setIntersecting(entry.isIntersecting);
           },
-          { root, rootMargin, threshold }
+          { threshold }
         );
 
         observer.observe(node);
         setOserver(observer);
       }
     },
-    [root, rootMargin, threshold]
+    [threshold]
   );
 
   return { measureRef, isIntersecting, observer };

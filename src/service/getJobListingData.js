@@ -1,12 +1,9 @@
 import { GET_JOB_LISTING_URL } from "src/constants";
-export const getJobListingData = () => {
+export const getJobListingData = (bodyData) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  const body = JSON.stringify({
-    limit: 20,
-    offset: 0,
-  });
+  const body = JSON.stringify(bodyData);
 
   const requestOptions = {
     method: "POST",
