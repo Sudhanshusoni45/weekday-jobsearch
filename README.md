@@ -32,6 +32,8 @@ Start the server
 - Debounce
 - Filters
 - Mobile Responsivess
+- Lazy Loading
+NOTE: Debounce, Lazy loading are not really needed here, these are for demonstration purposes.
 
 
 ##  Built With
