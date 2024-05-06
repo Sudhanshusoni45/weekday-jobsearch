@@ -33,6 +33,7 @@ Start the server
 - Filters
 - Mobile Responsivess
 - Lazy Loading
+
 NOTE: Debounce, Lazy loading are not really needed here, these are for demonstration purposes.
 
 
